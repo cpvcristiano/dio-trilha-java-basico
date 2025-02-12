@@ -1,18 +1,17 @@
-## Getting Started
+# Conta Terminal - DioBanc
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Este projeto em Java é um simples simulador de criação de conta bancária via terminal. Ele interage com o usuário solicitando informações como número da agência, nome completo e saldo inicial. Em seguida, exibe uma mensagem confirmando a criação da conta.
 
-## Folder Structure
+## 📌 Funcionalidades
 
-The workspace contains two folders by default, where:
+- Solicita ao usuário o número da agência.
+- Captura o nome completo do usuário.
+- Solicita o saldo inicial da conta.
+- Exibe uma mensagem confirmando a criação da conta com os dados inseridos.
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## 🛠️ Tecnologias Utilizadas
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+- **Java** - Linguagem de programação principal.
+- **Scanner** - Utilizado para capturar entrada do usuário no terminal.
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
 
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
