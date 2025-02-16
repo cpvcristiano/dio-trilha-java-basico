@@ -1,27 +1,42 @@
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 public class Contador {
 
     public static void main(String[] args) {
         Scanner terminal = new Scanner(System.in);
+        boolean continuar = true;
 
-        // Entrada dos números pelo usuário
-        System.out.print("Digite o primeiro número: ");
-        int parametroUm = terminal.nextInt();
+        while (continuar) {
+            try {
+                // Entrada dos números pelo usuário
+                System.out.print("Digite o primeiro número: ");
+                int parametroUm = terminal.nextInt();
 
-        System.out.print("Digite o segundo número: ");
-        int parametroDois = terminal.nextInt();
+                System.out.print("Digite o segundo número: ");
+                int parametroDois = terminal.nextInt();
 
-        try {
-            // Chama o método contar, que executa a lógica do desafio
-            contar(parametroUm, parametroDois);
-        } catch (ParametrosInvalidosException e) {
-            // Mensagem de erro quando o primeiro parâmetro for maior que o segundo
-            System.out.println("Erro: " + e.getMessage());
+                // Chama o método contar, que executa a lógica do desafio
+                contar(parametroUm, parametroDois);
+            } catch (ParametrosInvalidosException e) {
+                System.out.println("Erro: " + e.getMessage());
+            } catch (InputMismatchException e) {
+                System.out.println("Erro: Entrada inválida. Digite apenas números inteiros.");
+                terminal.nextLine(); // Limpa a entrada inválida inválida
+            }
+
+            // Pergunta ao usuário se deseja continuar
+            System.out.print("Deseja executar novamente? (s/n): ");
+            String resposta = terminal.next().toLowerCase();
+
+            if (!resposta.equals("s")) {
+                continuar = false;
+            }
         }
 
-        // Fechar o Scanner para evitar vazamento de recurso
+        // Fecha o scanner após sair do loop
         terminal.close();
+        System.out.println("Programa encerrado.");
     }
 
     static void contar(int parametroUm, int parametroDois) throws ParametrosInvalidosException {
@@ -34,8 +49,10 @@ public class Contador {
         int contagem = parametroDois - parametroUm;
 
         // Loop para imprimir os números
+        System.out.print("Contagem: ");
         for (int i = 1; i <= contagem; i++) {
-            System.out.println("Imprimindo o número " + (parametroUm + i));
+            System.out.print((parametroUm + i) + " ");
         }
+        System.out.println(); // Pula linha após a contagem
     }
 }
